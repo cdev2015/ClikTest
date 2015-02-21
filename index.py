@@ -1,1 +1,4 @@
-__author__ = '55'
+# -*- coding: utf-8 -*-
+import Utils.SaveLog
+
+Utils.SaveLog()
