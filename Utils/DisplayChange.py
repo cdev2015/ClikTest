@@ -12,7 +12,7 @@ displayList = [(1920, 1080), (1768, 992), (1680, 1050), (1600, 1200), (1600, 102
 
 MyMonitor = [(800,600),(1024,768),(1152,864),(1280,1024),(1600,1200)]
 
-def RandomMonitor():
+def RandomMonitor(WidthHeightList):
     display_modes = {}
     n = 0
     while True:
@@ -29,12 +29,13 @@ def RandomMonitor():
         )
         display_modes[key] = devmode
         n += 1
-    ExtensionDiplay = random.choice(MyMonitor)
+    ExtensionDiplay = random.choice(WidthHeightList)
     WidthDiplay = ExtensionDiplay[0]
     HeightDiplay = ExtensionDiplay[1]
     mode_required = (WidthDiplay, HeightDiplay)
     devmode = display_modes[mode_required]
     win32api.ChangeDisplaySettings (devmode, 0)
+    return ExtensionDiplay
 
 if __name__ == "__main__":
-    RandomMonitor()
+    RandomMonitor(MyMonitor)
